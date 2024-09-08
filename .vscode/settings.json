@@ -2,6 +2,7 @@
     "files.associations": {
         "*.py": "python",
         "iostream": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "cmath": "cpp"
     }
 }

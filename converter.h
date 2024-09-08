@@ -1,24 +1,37 @@
-int find_number_length(int value)
+int find_number_length(long long value)
 {
-    int length;
-    if(value > 0)
-    {
-        for(length = 0; value > 0; length++)
+    int length = 0;
+    while(value > 0)
         {
             value /= 10;
+            length++;
         }
-    }
-    cout << length;
-    return 0;
+    return length;
 }
 
 
 
 //Binary to Decimal
-int B_to_D(int value)
+int B_to_D(long long value)
 {   
-    find_number_length(value);
-    return 0;
+    int binary_num, x, decimal_add, decimal_sum = 0;
+    int num_length = find_number_length(value);
+    //cout << num_length << endl;
+
+    for(x = 0; x < num_length; x++)
+    {
+        binary_num = value % 10;
+        decimal_add = binary_num * pow(2,x);
+        //cout << binary_num << "    ";
+        //cout << x << " : ";
+        decimal_sum += decimal_add;
+        //cout << decimal_add << " --> " << decimal_sum << endl;
+
+        value /= 10;
+        value = value - (binary_num/10);
+    }
+
+    return decimal_sum;
 }
 
 

@@ -39,14 +39,16 @@ void choose_converter(int & chooser)
 
 void apply_converter(int converter_type)
 {
-    int binary, decimal;
+    long long binary, number;
+    int decimal;
     string hexa;
     switch(converter_type)
     {
     case 1:
         cout << "Please enter your 8 or 16 bit binary number: ";
         cin >> binary;
-        B_to_D(binary);
+        number = B_to_D(binary);
+        cout << "Your Binary number in decimal format is: " << number << endl;
         break;
     case 2:
         cout << "Please enter your 8 or 16 bit binary number: ";

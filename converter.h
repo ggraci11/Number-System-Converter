@@ -16,6 +16,7 @@ int B_to_D(long long value)
 {   
     int binary_num, x, decimal_add, decimal_sum = 0;
     int num_length = find_number_length(value);
+    
     //cout << num_length << endl;
 
     for(x = 0; x < num_length; x++)
@@ -36,16 +37,60 @@ int B_to_D(long long value)
 
 
 //Binary to Hexadecimal
-string B_to_H(int value)
+void B_to_H(long long value)
 {
-    return 0;
+    int binary_num, decimal_add, decimal_sum, index = 0;
+    char hexa[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    int num_length = find_number_length(value);
+    int counter = num_length/4;
+    int hex_values[counter] = {0};
+
+    for(int i = counter - 1; i >= 0; i--)
+    {
+        for(int x = 0; x < 4; x++)
+        {
+            binary_num = value % 10;
+            decimal_add = binary_num * pow(2,x);
+            decimal_sum += decimal_add;
+            value /= 10;
+            value = value - (binary_num/10);
+        }
+        hex_values[i] = decimal_sum;
+        decimal_sum = 0;
+    }
+    
+    for(int i = 0; i < counter; i++)
+    {
+        cout << hexa[hex_values[i]];
+    }
+
 }
 
 
 //Deciaml to Binary
-int D_to_B(int value)
+void D_to_B(int value)
 {
-    return 0;
+    int result = value, counter = 0;
+    int remainders[16] = {0};
+
+    for(int i = 0; result != 0; i++)
+    {
+        if(result % 2 == 0)
+        {
+            remainders[i] = 0;
+        }
+        else
+        {
+            remainders[i] = 1;
+        }  
+        result /= 2;
+        counter++;
+    }
+
+    for(int x = counter; x >= 0; x--)
+    {
+        cout << remainders[x];
+    }
 }
 
 

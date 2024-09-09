@@ -11,7 +11,8 @@ void welcome()
     cout << "5.) Hexadecimal to Binary" << endl;
     cout << "6.) Hexadecimal to Decimal" << endl;
 
-    cout << setfill(' ') << endl << "What two number systems will you be converting?" << endl;
+    cout << setfill('-') << setw(35) << "" << endl;
+    cout << setfill(' ') << "What two number systems will you be converting?" << endl;
     cout << "Please enter a corresponding number: ";
 
 }
@@ -33,6 +34,7 @@ void choose_converter(int & chooser)
             exit(0);
         }
     }
+    cout << endl;
 }
 
 
@@ -45,13 +47,13 @@ void apply_converter(int converter_type)
     switch(converter_type)
     {
     case 1:
-        cout << "Please enter your 8 or 16 bit binary number: ";
+        cout << "Please enter your binary number: ";
         cin >> binary;
         number = B_to_D(binary);
         cout << "Your Binary number in decimal format is: " << number << endl;
         break;
     case 2:
-        cout << "Please enter your 8 or 16 bit binary number: ";
+        cout << "Please enter your binary number: ";
         cin >> binary;
         B_to_H(binary);
         break;

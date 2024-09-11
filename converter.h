@@ -95,9 +95,28 @@ void D_to_B(int value)
 
 
 //Decimal to Hexadecimal
-string D_to_H(int value)
-{
-    return 0;
+void D_to_H(double value)
+{   
+    char print_array[10] = {'0', '0', '0', '0', '0', '0', '0', '0', '0', '0'};
+    char hexa_array[16] = {'0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+    double result = value, remainder = 0.0;
+    int hexa = 0;
+    int num_length = find_number_length(value);
+    
+
+    for(int i = 0; i < num_length; i++)
+    {
+        remainder = (result/16.0) - (static_cast<int>(result)/16);
+        hexa = remainder * 16;
+        result = (result / 16) - remainder;
+        print_array[i] = hexa_array[hexa];
+
+    }
+
+    for(int i = num_length - 1; i >= 0; i--)
+    {
+        cout << print_array[i];
+    }
 }
 
 

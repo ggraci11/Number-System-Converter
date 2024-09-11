@@ -42,7 +42,7 @@ void choose_converter(int & chooser)
 void apply_converter(int converter_type)
 {
     long long binary, number;
-    int decimal;
+    double decimal;
     string hexa;
     switch(converter_type)
     {
